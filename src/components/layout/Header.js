@@ -55,8 +55,8 @@ export default function Header() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0 flex items-center gap-1">
-              <span className="text-xl sm:text-2xl font-extrabold text-gradient">
-                NearbyFinds
+              <span className="text-xl sm:text-2xl font-extrabold text-primary-600 dark:text-primary-400">
+                OfferUp
               </span>
             </Link>
 
@@ -211,7 +211,7 @@ export default function Header() {
             style={{ animationFillMode: 'both' }}
           >
             <div className="flex items-center justify-between p-4 border-b border-surface-200 dark:border-surface-700">
-              <span className="text-lg font-bold text-gradient">NearbyFinds</span>
+              <span className="text-lg font-bold text-primary-600 dark:text-primary-400">OfferUp</span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 rounded-lg hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"

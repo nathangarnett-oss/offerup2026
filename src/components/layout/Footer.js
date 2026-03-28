@@ -61,10 +61,10 @@ export default function Footer() {
           {/* Logo & tagline */}
           <div className="col-span-2">
             <Link to="/" className="inline-block">
-              <span className="text-2xl font-extrabold text-gradient">NearbyFinds</span>
+              <span className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">OfferUp</span>
             </Link>
             <p className="mt-3 text-sm text-surface-500 dark:text-surface-400 max-w-xs leading-relaxed">
-              Your trusted local marketplace. Buy, sell, and discover amazing deals in your neighborhood.
+              Buy. Sell. Simple. The largest mobile marketplace for local buyers and sellers.
             </p>
 
             {/* Social icons */}
@@ -114,7 +114,7 @@ export default function Footer() {
         <div className="mt-10 pt-6 border-t border-surface-200 dark:border-surface-800
                         flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-surface-400 dark:text-surface-500">
-            &copy; {new Date().getFullYear()} NearbyFinds. All rights reserved.
+            &copy; {new Date().getFullYear()} OfferUp. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-surface-400 dark:text-surface-500">
             <Link to="/privacy" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">

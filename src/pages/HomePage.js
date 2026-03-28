@@ -53,10 +53,10 @@ export default function HomePage() {
         <div className="relative max-w-5xl mx-auto px-4 pt-16 pb-12 sm:pt-24 sm:pb-16 text-center">
           {/* Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-            <span className="text-gradient">Find anything nearby.</span>
+            <span className="text-gradient">Buy. Sell. Simple.</span>
           </h1>
           <p className="text-lg sm:text-xl text-surface-500 dark:text-surface-400 max-w-2xl mx-auto mb-8">
-            The smartest way to buy, sell, and discover locally.
+            The simplest way to buy and sell locally. Find great deals on the things you want, sell the things you don't.
           </p>
 
           {/* Search */}
