@@ -135,83 +135,7 @@ function NumberInput({ value, onChange, placeholder, className = '' }) {
 // ---------------------------------------------------------------------------
 
 function ListingCardList({ listing }) {
-  const { toggleFavorite, isFavorite } = useApp();
-  const favorited = isFavorite(listing.id);
-
-  const formatPrice = (price, label) => {
-    if (price === 0) return 'Free';
-    const formatted =
-      price >= 1000
-        ? `$${(price / 1000).toFixed(price % 1000 === 0 ? 0 : 1)}k`
-        : `$${price}`;
-    return label ? `${formatted}${label}` : formatted;
-  };
-
-  return (
-    <a
-      href={`/listing/${listing.id}`}
-      className="group block card overflow-hidden"
-    >
-      <div className="flex">
-        {/* Image */}
-        <div className="relative w-40 sm:w-52 flex-shrink-0 bg-surface-100 dark:bg-surface-800">
-          <div className="w-full h-full min-h-[120px] bg-gradient-to-br from-surface-200 to-surface-300 dark:from-surface-700 dark:to-surface-800 flex items-center justify-center">
-            <span className="text-surface-400 text-sm">Photo</span>
-          </div>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              toggleFavorite(listing.id);
-            }}
-            className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 dark:bg-surface-900/80 backdrop-blur-sm hover:scale-110 transition-transform"
-          >
-            <svg
-              className={`w-4 h-4 ${
-                favorited ? 'fill-red-500 text-red-500' : 'text-surface-500'
-              }`}
-              viewBox="0 0 24 24"
-              fill={favorited ? 'currentColor' : 'none'}
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Details */}
-        <div className="flex-1 p-4 flex flex-col justify-between min-w-0">
-          <div>
-            <p className="font-bold text-surface-900 dark:text-surface-100 text-base">
-              {formatPrice(listing.price, listing.priceLabel)}
-            </p>
-            <h3 className="text-sm text-surface-700 dark:text-surface-300 line-clamp-2 mt-0.5 group-hover:text-primary-600 transition-colors">
-              {listing.title}
-            </h3>
-            {listing.description && (
-              <p className="text-xs text-surface-400 line-clamp-2 mt-1 hidden sm:block">
-                {listing.description}
-              </p>
-            )}
-          </div>
-          <div className="flex items-center gap-3 mt-2">
-            <span className="flex items-center gap-1 text-xs text-surface-400">
-              <MapPin className="w-3 h-3" />
-              {listing.location}
-            </span>
-            {listing.condition && (
-              <span className="badge bg-surface-100 dark:bg-surface-800 text-surface-500 text-[10px]">
-                {listing.condition}
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-    </a>
-  );
+  return <ListingCard listing={listing} variant="list" />;
 }
 
 // ---------------------------------------------------------------------------
@@ -662,7 +586,11 @@ export default function SearchPage() {
       {/* ---- Search Header ---- */}
       <div className="sticky top-0 z-30 bg-white/80 dark:bg-surface-900/80 backdrop-blur-xl border-b border-surface-200 dark:border-surface-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
-          <SearchBar className="max-w-2xl mx-auto" />
+          <SearchBar
+            variant="compact"
+            initialValue={searchQuery}
+            onSearch={(q) => updateParam('q', q)}
+          />
         </div>
 
         {/* Active filter chips + result count */}

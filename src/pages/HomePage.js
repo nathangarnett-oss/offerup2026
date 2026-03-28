@@ -61,7 +61,7 @@ export default function HomePage() {
 
           {/* Search */}
           <div className="max-w-2xl mx-auto mb-6">
-            <SearchBar large placeholder="Search for anything..." className="shadow-lg shadow-primary-500/10 dark:shadow-primary-400/5" />
+            <SearchBar variant="hero" onSearch={(q) => navigate(`/search?q=${encodeURIComponent(q)}`)} />
           </div>
 
           {/* Location */}
